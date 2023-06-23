@@ -6,8 +6,7 @@ async function main() {
     const fee = await sdk.estimateGasFee(
         CHAINS.TESTNET.ETHEREUM,
         CHAINS.TESTNET.ARBITRUM,
-        GasToken.ETH,
-        350000
+        GasToken.ETH
         )
     console.log(`fee is ${fee}`)
 }

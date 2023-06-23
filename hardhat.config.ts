@@ -2,10 +2,10 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "dotenv/config"
 
-// // set proxy
-// import { ProxyAgent, setGlobalDispatcher } from "undici"
-// const proxyAgent = new ProxyAgent('http://127.0.0.1:7890')
-// setGlobalDispatcher(proxyAgent)
+// set proxy
+import { ProxyAgent, setGlobalDispatcher } from "undici"
+const proxyAgent = new ProxyAgent('http://127.0.0.1:7890')
+setGlobalDispatcher(proxyAgent)
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -19,7 +19,7 @@ const config: HardhatUserConfig = {
   },
   networks: {
     arbitrumGoerli: {
-      url: "https://arbitrum-goerli.public.blastapi.io",
+      url: `https://arb-goerli.g.alchemy.com/v2/${process.env.ARBITRUMGOERLI_RPC}`,
       accounts: [`${process.env.OWNER_PRIVATE_KEY}`]
     },
     goerli: {
