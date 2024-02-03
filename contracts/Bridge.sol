@@ -29,7 +29,6 @@ contract Bridge is Access {
     ) external payable {
         BridgeInfo memory bridge = bridges[desChain];
         require(bridge.set, "Bridge: invalid bridge");
-        require(bridge.open, "Bridge: closed bridge");
 
         bytes memory payload = abi.encode(msg.sender ,amount);
         feeService.payNativeGasForContractCall{value: msg.value}(
